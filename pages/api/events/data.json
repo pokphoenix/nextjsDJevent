@@ -1,0 +1,22 @@
+{
+    "events":[
+        {
+            "id":1,
+            "name":"Poktest 1",
+            "slug":"poktest",
+            "image": "/images/sample/event1.jpg"
+        },
+        {
+            "id":2,
+            "name":"Poktest 2",
+            "slug":"poktest-2",
+            "image": "/images/sample/event2.jpg"
+        },
+        {
+            "id":3,
+            "name":"Poktest 3",
+            "slug":"poktest",
+            "image": "/images/sample/event3.jpg"
+        }
+    ]
+}
