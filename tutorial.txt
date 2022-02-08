@@ -1,0 +1,66 @@
+##### Extension #####
+=====================
+-ES7 React/Redux/GraphQL/React-Native snippets
+-Bracket Pair Colorizer
+-Peacock
+-Prettier - Code formatter
+
+- npm run dev
+-npm i react-icons
+
+
+##### Final code #####
+- NextJS website - https://github.com/bradtraversy/dj-events-frontend 
+- strapi Backend - https://github.com/bradtraversy/dj-events-backend
+
+
+
+##### Problem ##### 
+- npm ERR! enoent ENOENT: no such file or directory, open 'D:\...\package.json'
+->  cd ...project name...
+- TypeError: Only absolute URLs are supported
+export async function getServerSideProps(){
+  74 |   const res = await fetch('/api/events')
+     |                    ^
+  75 | }
+-> have to create url   ex. 
+--- config/index.js ---
+export const API_URL =  process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'
+-> then use it 
+  const res = await fetch(`${API_URL}/api/events`)
+
+- error: await isn't allowed in non-async function
+->  insert async after function   name
+
+
+
+
+##### Start #####
+- create about.js  
+- type rfc for generate code 
+
+
+
+##### Module Aliases With jsconfig #####
+========================================
+
+can use 
+import Layout from "@/components/Layout"
+instead of 
+import Layout from "../../components/Layout"
+by 
+create 
+--- jsconfig.json  ---
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@/components/*":["components/*"],
+            "@/styles/*":["styles/*"],
+        }
+    }
+}
+
+
+
+npm i react-toastify

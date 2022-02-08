@@ -13,7 +13,7 @@ export default function EventPage({ evt }) {
     const router = useRouter()
     return (
         <Layout>
-            <div className={styles.event}>
+             <div className={styles.event}>
                 <div className={styles.controls}>
                     <Link href={`/events/edit/${evt.id}`}  >
                         <a>
@@ -26,7 +26,7 @@ export default function EventPage({ evt }) {
                 </div>
                 <span>  { new Date(evt.attributes.date).toLocaleDateString('en-US')} at {evt.attributes.time} </span>
                 <h1>{evt.attributes.name}</h1>
-                {evt.attributes.image && (
+                {evt.attributes.image && evt.attributes.image.data && (
                     <div className={styles.image}>
                         <Image src={evt.attributes.image.data.attributes.formats.medium.url} width={960} height={600} ></Image>
                     </div>
