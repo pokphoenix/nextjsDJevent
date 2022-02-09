@@ -1,6 +1,7 @@
 import moment from 'moment'
 import Layout from '@/components/Layout'
 import Modal from '@/components/Modal'
+import ImageUpload from '@/components/ImageUpload'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
@@ -62,6 +63,15 @@ export default function EditEventPage({evt}) {
     const {name, value} = e.target
     setValues({...values, [name]: value })
   }
+
+  const imageUploaded = async (e) => {
+    const res = await fetch(`${API_URL}/api/events/${evt.id}?populate=*`)
+    const resData = await res.json()
+
+    setImagePreview(resData.data.attributes.image.data.attributes.formats.thumbnail.url)
+    setShowModal(false)
+  }
+
 
   return (
         <Layout title='Edit Event'>
@@ -167,8 +177,9 @@ export default function EditEventPage({evt}) {
                 </button>
             </div>
 
+    
             <Modal show={showModal} onClose={() => setShowModal(false)}>
-                IMAGE UPLOAD
+                <ImageUpload evtId={evt.id}  imageUploaded={imageUploaded} />
             </Modal>
         </Layout>
   )
