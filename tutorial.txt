@@ -65,3 +65,4 @@ create
 
 npm i react-toastify
 npm i moment        for datepicker
+npm i cookie
